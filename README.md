@@ -17,4 +17,5 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK_ROOT/build/cmake/android.toolchain
 cmake .. -DWITH_OPENSSL=ON
 cmake --build . --target hv --config Release
 ```
-
+# 自定义证书
+https://github.com/ithewei/libhv/blob/master/examples/http_server_test.cpp
