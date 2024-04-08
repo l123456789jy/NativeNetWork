@@ -32,11 +32,15 @@ cc_defaults {
     ],
 
     shared_libs: [
-       "libhv",
        "libbase",
        "libcutils",
        "libutils",
        "liblog",
+       "libssl_3",
+       "libcrypto_3",
+    ],
+    static_libs: [
+        "libhv_static",
     ],
     logtags: ["event.logtags"],
 }
@@ -69,6 +73,17 @@ cc_prebuilt_library_shared{
 
 }
 
+cc_prebuilt_library_static {
+    name: "libhv_static",
+    system_ext_specific: true,
+    target: {
+            android_arm64: {
+                srcs: ["lib/libhv_static.a"],
+            },
+    },
+   
+}
+
 cc_prebuilt_library_shared{
         name: "libcrypto_3",  
         system_ext_specific: true,
@@ -89,6 +104,7 @@ cc_binary {
     name: "libhvTest",
     system_ext_specific: true,
     
+
     defaults: [
               "libhv_defaults"
             ],
@@ -99,7 +115,7 @@ cc_binary {
         "src/*.cpp",
         "src/*.c",
     ],
-     rtti: true,
+
 }
 
 
